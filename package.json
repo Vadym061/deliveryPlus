@@ -2,7 +2,7 @@
   "name": "delivery",
   "version": "1.0.0",
   "description": "",
-
+ 
   "scripts": {
     "dev": "gulp",
     "build": "gulp build --build",
