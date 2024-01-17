@@ -1,0 +1,173 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@font-face {
+	font-family: Gilroy;
+	font-display: swap;
+	src: url("../fonts/Gilroy-Bold.woff2") format(woff2), url("../fonts/Gilroy-Bold.woff") format("woff");
+	font-weight: 700;
+	font-style: normal;
+}
+
+@layer components {
+  .wrapper {
+    @apply max-w-[1444px] mx-auto px-[12px];
+  }
+  .btn {
+    @apply px-6 py-3 sm:px-8 sm:py-4 font-inter text-[13px] sm:text-base font-medium rounded-lg sm:rounded-[10px] bg-primary text-[#fff] ;
+  }
+  .lang-active-b {
+    @apply border-b-[2px] border-primary pb-[30px] text-primary;
+  }
+  .lang-active-t {
+    @apply border-t-[2px] border-primary pt-[17px] text-primary;
+  }
+  .nav {
+    @apply relative;
+  }
+  .nav::after {
+    @apply content-[''] bg-primary h-[3px] w-[0%] left-0 -bottom-[5px] rounded-xl absolute duration-300;
+  }
+  .nav:hover::after {
+    @apply w-[100%];
+  }
+  .nav:hover {
+    @apply text-primary duration-300;
+  }
+  .title {
+    @apply font-inter font-medium text-lg md:pb-4 md:cursor-default text-dark;
+  }
+  .title-section{
+    @apply font-gilroy text-[22px] md:text-[38px] font-bold text-[#082E3D] 
+  }
+  .padding-y{
+    @apply py-10 sm:py-[60px]
+  }
+  .padding-card{
+    @apply sm:py-[30px] sm:px-10 p-5 rounded-[15px] shadow-3xl
+  }
+
+}
+
+.active {
+  left: 0;
+  transition: all 0.5s ease;
+}
+
+.light-grey{
+  background: linear-gradient(0deg, rgba(255, 255, 255, 0.50) 0%, rgba(255, 255, 255, 0.50) 100%), #F6F7FB; 
+}
+html{
+  scroll-behavior: smooth;
+}
+body{
+  background-color: #FBFBFD;
+  font-display: swap;
+}
+.no-scroll::-webkit-scrollbar{
+  -webkit-appearance: none;
+  height: 0;
+  width: 0;
+  display: none;
+}
+
+.swiper {
+  width: 100%;
+  z-index: 0;
+}
+.scene {
+  perspective: 600px;
+}
+.card {
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+.card.is-flipped {
+  transform: translateX(-100%) rotateY(-180deg);
+}
+.front {
+  backface-visibility: hidden;
+  transition: all 0.7s ease;
+}
+.back{
+  transform: rotateY(180deg);
+  transition: all 0.7s ease;
+}
+.card.is-flipped > .front{
+  opacity: 0;
+} 
+.card.is-flipped > .back{
+  opacity: 1;
+  transition: all 1.5s ease;
+} 
+.radio {
+  box-shadow: 0px 0px 0px 1px #c3c8d9;
+  width: 13px;
+  height: 13px;
+  border: 3px solid #fff;
+  background-clip: border-box;
+  border-radius: 50%;
+  appearance: none;
+  transition: background-color 0.3s, box-shadow 0.3s;
+}
+#telegram:checked {
+  box-shadow: 0px 0px 0px 1px #c3c8d9;
+  background-color: #00A1DE;
+}
+#viber:checked {
+  box-shadow: 0px 0px 0px 1px #c3c8d9;
+  background-color: #6559A2;
+}
+
+.background-clip{
+  background: linear-gradient(180deg, #525F64 0%, rgba(82, 95, 100, 0.00) 100%);
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; 
+}
+.text-hide.more{
+  height: 100%;
+}
+.bg-window{
+  background: rgba(0, 0, 0, 0.25);
+  backdrop-filter: blur(12.5px); 
+}
+
+.tab-active[data-tab-content]{
+  display: flex;
+}
+.tab-active .svg .path{
+  stroke:  #00A1DE;
+  stroke-width: 2;
+}
+textarea {
+  max-height: 152px;
+}
+
+.tab-active .active-text {
+  color: #00A1DE;
+  font-size: 20px;
+  font-weight: 600;
+  left: 18px;
+}
+[data-tab-content]{
+  display: none;
+}
+.accordion.is-open >div > span::before {
+  transform: rotate(180deg);
+  transition: all 0.3s ease;
+}
+.accordion-content {
+  max-height: 0;
+  overflow: hidden;
+  transition: max-height 0.2s ease-in-out;
+}
+.input.error{
+  border: 1px solid #EA0000;
+}
+input,
+textarea,
+[contenteditable] {
+  caret-color: #FF7132;
+}
